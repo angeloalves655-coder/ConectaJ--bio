@@ -26,17 +26,22 @@
             text-align: center;
         }
         .profile-img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             background: #2563eb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
             margin: 0 auto 20px auto;
             box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
             border: 3px solid #60a5fa;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         h1 {
             font-size: 24px;
@@ -81,19 +86,25 @@
 </head>
 <body>
     <div class="container">
-        <div class="profile-img">🚀</div>
+        <!-- Logo Oficial do ConectaJá -->
+        <div class="profile-img">
+            <img src="Logo.PNG" alt="Logo ConectaJá">
+        </div>
         <h1>ConectaJá</h1>
-        <p>Soluções digitais e presença online para o seu negócio.</p>
+        <p>Tecnologia que aproxima seu negócio.</p>
         
         <div class="links-container">
-            <!-- 1. Botão do WhatsApp (substitua SEU_NUMERO pelo seu número com DDI e DDD, ex: 5519999999999) -->
-            <a href="https://wa.me/SEU_NUMERO?text=Olá!%20Vim%20pelo%20ConectaJá." class="btn" target="_blank">Fale Comigo no WhatsApp</a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/message/5E24MGUROMF4P1" class="btn" target="_blank">Fale Comigo no WhatsApp</a>
             
-            <!-- 2. Botão do Instagram (substitua SEU_INSTAGRAM pelo seu nome de usuário) -->
-            <a href="https://instagram.com/SEU_INSTAGRAM" class="btn" target="_blank">Siga no Instagram</a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/conectaja.digital?stkn=eWl6cW01bnFqcHQx&utm_source=qr" class="btn" target="_blank">Siga no Instagram</a>
             
-            <!-- 3. Cartões Digitais ou Google Business -->
-            <a href="#" class="btn" target="_blank">Conheça nossos Cartões Digitais</a>
+            <!-- Google Business -->
+            <a href="https://share.google/r8BAc0P7lGivoCG9t" class="btn" target="_blank">Google Business & Local</a>
+            
+            <!-- Cartões Digitais -->
+            <a href="https://wa.me/message/5E24MGUROMF4P1" class="btn" target="_blank">Conheça nossos Cartões Digitais</a>
         </div>
 
         <div class="footer">
