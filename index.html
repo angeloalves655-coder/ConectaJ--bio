@@ -12,7 +12,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+            background: linear-gradient(135deg, #090d16, #0f172a, #1e293b);
             color: #ffffff;
             min-height: 100vh;
             display: flex;
@@ -24,19 +24,28 @@
             width: 100%;
             max-width: 450px;
             text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .profile-img {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
             background: #2563eb;
-            margin: 0 auto 15px auto;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            margin: 0 auto 20px auto;
+            box-shadow: 0 0 25px rgba(37, 99, 235, 0.6);
             border: 3px solid #60a5fa;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
         }
         .profile-img img {
             width: 100%;
@@ -44,55 +53,65 @@
             object-fit: cover;
         }
         h1 {
-            font-size: 24px;
-            margin-bottom: 5px;
+            font-size: 26px;
+            margin-bottom: 8px;
             color: #f8fafc;
+            letter-spacing: 0.5px;
         }
         p {
             font-size: 14px;
             color: #94a3b8;
-            margin-bottom: 20px;
-        }
-        .work-showcase {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 25px;
-            border: 2px solid #334155;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-        .work-showcase img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
+            margin-bottom: 35px;
         }
         .links-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 16px;
         }
         .btn {
             background-color: #1e293b;
             color: #ffffff;
             border: 2px solid #334155;
-            padding: 16px 20px;
-            border-radius: 12px;
+            padding: 16px 22px;
+            border-radius: 14px;
             text-decoration: none;
             font-size: 16px;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: block;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn span {
+            font-size: 20px;
         }
         .btn:hover, .btn:focus {
             background-color: #2563eb;
             border-color: #60a5fa;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+        }
+        /* Botão do WhatsApp em destaque pulsante */
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            border-color: #4ade80;
+            animation: pulseGlow 2s infinite;
+        }
+        .btn-whatsapp:hover {
+            background: linear-gradient(135deg, #15803d, #16a34a);
+            border-color: #86efac;
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            70% { box-shadow: 0 0 0 12px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
         .footer {
-            margin-top: 30px;
+            margin-top: 40px;
             font-size: 12px;
             color: #64748b;
         }
@@ -107,23 +126,26 @@
         <h1>ConectaJá</h1>
         <p>Tecnologia que aproxima seu negócio.</p>
         
-        <!-- Destaque do Trabalho -->
-        <div class="work-showcase">
-            <img src="CF09B222-9DB0-4897-BE5C-6A414FE39DC3.png" alt="Exemplo de Trabalho ConectaJá">
-        </div>
-
         <div class="links-container">
-            <!-- WhatsApp -->
-            <a href="https://wa.me/message/5E24MGUROMF4P1" class="btn" target="_blank">Fale Comigo no WhatsApp</a>
+            <!-- WhatsApp (Destaque Pulsante) -->
+            <a href="https://wa.me/message/5E24MGUROMF4P1" class="btn btn-whatsapp" target="_blank">
+                <span>💬</span> Fale Comigo no WhatsApp
+            </a>
             
             <!-- Instagram -->
-            <a href="https://www.instagram.com/conectaja.digital?stkn=eWl6cW01bnFqcHQx&utm_source=qr" class="btn" target="_blank">Siga no Instagram</a>
+            <a href="https://www.instagram.com/conectaja.digital?stkn=eWl6cW01bnFqcHQx&utm_source=qr" class="btn" target="_blank">
+                <span>📸</span> Siga no Instagram
+            </a>
             
             <!-- Google Business -->
-            <a href="https://share.google/r8BAc0P7lGivoCG9t" class="btn" target="_blank">Google Business & Local</a>
+            <a href="https://share.google/r8BAc0P7lGivoCG9t" class="btn" target="_blank">
+                <span>⭐</span> Google Business & Local
+            </a>
             
             <!-- Cartões Digitais -->
-            <a href="https://wa.me/message/5E24MGUROMF4P1" class="btn" target="_blank">Conheça nossos Cartões Digitais</a>
+            <a href="https://wa.me/message/5E24MGUROMF4P1" class="btn" target="_blank">
+                <span>⚡</span> Conheça nossos Cartões Digitais
+            </a>
         </div>
 
         <div class="footer">
