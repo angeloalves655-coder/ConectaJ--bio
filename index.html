@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConectaJá | Soluções Digitais para Negócios</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #090d16;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(56, 189, 248, 0.2);
+            --primary: #38bdf8;
+            --primary-hover: #0ea5e9;
+            --accent: #10b981;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.06) 0%, transparent 40%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Barra de Demonstração para Vendas */
+        .demo-badge {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #0ea5e9, #10b981);
+            color: #fff;
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 8px;
+            letter-spacing: 0.5px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .demo-badge span {
+            background: rgba(0,0,0,0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 440px;
+            text-align: center;
+            margin-top: 40px; /* Espaço para a barra de demo */
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Perfil / Avatar */
+        .profile-wrapper {
+            position: relative;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            object-fit: cover;
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: var(--accent);
+            color: #fff;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            border: 2px solid var(--bg-color);
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 0.95rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .location {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* Prova Social / Estrelas do Google */
+        .google-reviews {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .google-reviews i {
+            color: #fbbf24;
+            font-size: 1.1rem;
+        }
+
+        .google-reviews div {
+            text-align: left;
+        }
+
+        .google-reviews strong {
+            display: block;
+            font-size: 0.85rem;
+        }
+
+        .google-reviews span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Links e Botões de Alta Conversão */
+        .links-group {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            padding: 15px 20px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn i.left-icon {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-right: 12px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .btn .btn-content {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            text-align: left;
+        }
+
+        .btn .btn-text strong {
+            display: block;
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+
+        .btn .btn-text span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .btn i.right-arrow {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            transition: transform 0.3s;
+        }
+
+        /* Destaque especial para o WhatsApp Principal */
+        .btn.whatsapp {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2));
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .btn.whatsapp i.left-icon {
+            color: var(--accent);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            background: rgba(56, 189, 248, 0.1);
+            box-shadow: 0 8px 25px rgba(56, 189, 248, 0.25);
+        }
+
+        .btn:hover i.right-arrow {
+            transform: translateX(4px);
+            color: var(--primary);
+        }
+
+        /* Rodapé de Vendas / Assinatura */
+        .footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra simulando apresentação comercial -->
+    <div class="demo-badge">
+        <span>⚡ DEMONSTRAÇÃO</span> Quer um site profissional como este para o seu negócio?
+    </div>
+
+    <div class="container">
+        <!-- Foto de Perfil / Logotipo -->
+        <div class="profile-wrapper">
+            <!-- Dica: Substitua o link da imagem pela logo oficial da ConectaJá ou sua foto profissional -->
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop" alt="ConectaJá" class="avatar">
+            <div class="verified-badge" title="Empresa Verificada"><i class="fa-solid fa-check"></i></div>
+        </div>
+
+        <h1>ConectaJá</h1>
+        <div class="tagline">Tecnologia que aproxima o seu negócio dos clientes</div>
+        <div class="location">
+            <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i> Santa Bárbara d'Oeste e Região
+        </div>
+
+        <!-- Bloco de Prova Social -->
+        <div class="google-reviews">
+            <i class="fa-solid fa-star"></i>
+            <div>
+                <strong>Excelência em Atendimento Digital</strong>
+                <span>Soluções validadas por comerciantes locais</span>
+            </div>
+        </div>
+
+        <!-- Grupo de Botões / Soluções -->
+        <div class="links-group">
+            
+            <!-- WhatsApp Principal (Conversão Direta) -->
+            <a href="https://wa.me/5519994604562?text=Olá!%20Vi%20o%20site%20da%20ConectaJá%20e%20quero%20saber%20mais%20sobre%20as%20soluções%20digitais." class="btn whatsapp" target="_blank">
+                <div class="btn-content">
+                    <i class="fa-brands fa-whatsapp left-icon"></i>
+                    <div class="btn-text">
+                        <strong>Falar no WhatsApp</strong>
+                        <span>Atendimento imediato e orçamento</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right right-arrow"></i>
+            </a>
+
+            <!-- Cartão Virtual -->
+            <a href="https://drive.google.com/open?id=1gnjXw7oVQYZlAg83Mx1yVIM2L5S4XPFN1u7CYib4InA" class="btn" target="_blank">
+                <div class="btn-content">
+                    <i class="fa-solid fa-id-card left-icon"></i>
+                    <div class="btn-text">
+                        <strong>Cartão Virtual Interativo</strong>
+                        <span>Conecte sua marca direto ao WhatsApp</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right right-arrow"></i>
+            </a>
+
+            <!-- Placas NFC e QR Code -->
+            <a href="https://wa.me/5519994604562?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20as%20Placas%20NFC%20e%20QR%20Code%20para%20Google%20Meu%20Negócio." class="btn" target="_blank">
+                <div class="btn-content">
+                    <i class="fa-solid fa-qrcode left-icon"></i>
+                    <div class="btn-text">
+                        <strong>Placas NFC & QR Code</strong>
+                        <span>Mais avaliações 5 estrelas no Google</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right right-arrow"></i>
+            </a>
+
+            <!-- Cardápio Digital / Soluções -->
+            <a href="https://wa.me/5519994604562?text=Olá!%20Quero%20conhecer%20o%20Cardápio%20Digital%20para%20o%20meu%20estabelecimento." class="btn" target="_blank">
+                <div class="btn-content">
+                    <i class="fa-solid fa-utensils left-icon"></i>
+                    <div class="btn-text">
+                        <strong>Cardápio & Catálogo Digital</strong>
+                        <span>Praticidade e modernidade para vendas</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right right-arrow"></i>
+            </a>
+
+        </div>
+
+        <!-- Rodapé Profissional -->
+        <div class="footer">
+            Desenvolvido por <a href="https://wa.me/5519994604562" target="_blank">ConectaJá</a> © 2026<br>
+            <span style="font-size: 0.7rem; opacity: 0.7;">Tecnologia de ponta para impulsionar o seu comércio</span>
+        </div>
+    </div>
+
+</body>
+</html>
