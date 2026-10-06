@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConectaJá | Marketing Digital & Serviços</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #090d16, #0f172a, #1e293b);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: #2563eb;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 0 25px rgba(37, 99, 235, 0.6);
+            border: 3px solid #60a5fa;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        h1 {
+            font-size: 26px;
+            margin-bottom: 8px;
+            color: #f8fafc;
+            letter-spacing: 0.5px;
+        }
+        p {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 35px;
+        }
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .btn {
+            background-color: #1e293b;
+            color: #ffffff;
+            border: 2px solid #334155;
+            padding: 16px 22px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn span {
+            font-size: 20px;
+        }
+        .btn:hover, .btn:focus {
+            background-color: #2563eb;
+            border-color: #60a5fa;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+        }
+        /* Botão do WhatsApp em destaque pulsante */
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #16a34a, #22c55e);
+            border-color: #4ade80;
+            animation: pulseGlow 2s infinite;
+        }
+        .btn-whatsapp:hover {
+            background: linear-gradient(135deg, #15803d, #16a34a);
+            border-color: #86efac;
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            70% { box-shadow: 0 0 0 12px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+        .footer span {
+            color: #60a5fa;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo Oficial do ConectaJá -->
+        <div class="profile-img">
+            <img src="Logo.PNG" alt="Logo ConectaJá">
+        </div>
+        <h1>ConectaJá</h1>
+        <p>Tecnologia que aproxima seu negócio.</p>
+        
+        <div class="links-container">
+            <!-- WhatsApp (Destaque Pulsante) -->
+            <a href="https://wa.me/message/5E24MGUROMF4P1" class="btn btn-whatsapp" target="_blank">
+                <span>💬</span> Fale Comigo no WhatsApp
+            </a>
+            
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/conectaja.digital?stkn=eWl6cW01bnFqcHQx&utm_source=qr" class="btn" target="_blank">
+                <span>📸</span> Siga no Instagram
+            </a>
+            
+            <!-- Google Business -->
+            <a href="https://share.google/r8BAc0P7lGivoCG9t" class="btn" target="_blank">
+                <span>⭐</span> Google Business & Local
+            </a>
+            
+            <!-- Cartões Digitais -->
+            <a href="https://wa.me/message/5E24MGUROMF4P1" class="btn" target="_blank">
+                <span>⚡</span> Conheça nossos Cartões Digitais
+            </a>
+        </div>
+
+        <div class="footer">
+            © 2026 ConectaJá. Todos os direitos reservados.<br>
+            Criado com <span>ConectaJá</span> — Tecnologia que aproxima.
+        </div>
+    </div>
+</body>
+</html>
