@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConectaJá | Soluções Digitais para o seu Negócio</title>
+    <!-- Google Fonts Premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #050a12;
+            --card-bg: #0b1422;
+            --accent-blue: #00a2ff;
+            --blue-glow: rgba(0, 162, 255, 0.45);
+            --text-primary: #ffffff;
+            --text-secondary: #a0b3ce;
+            --whatsapp-green: #25d366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 0 20px 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 440px;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-dark);
+            min-height: 100vh;
+        }
+
+        /* Hero Banner Ajustado para Mostrar a Logo Completa Sem Cortes */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #03070d;
+            padding: 15px;
+        }
+
+        .hero-banner-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Garante que a logo inteira apareça sem cortes */
+            object-position: center;
+            z-index: 1;
+            filter: drop-shadow(0 0 20px rgba(0, 162, 255, 0.25));
+        }
+
+        /* Degradê suave inferior para fusão de cores */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 70%, #050a12 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Barra de Redes Sociais */
+        .social-bar {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin: 15px 0 20px 0;
+            padding: 0 20px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 162, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 0 18px var(--blue-glow);
+        }
+
+        /* Botão do WhatsApp Pulsante no Topo */
+        @keyframes pulse-blue {
+            0% { box-shadow: 0 0 0 0 rgba(0, 162, 255, 0.6); }
+            70% { box-shadow: 0 0 0 14px rgba(0, 162, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 162, 255, 0); }
+        }
+
+        .btn-whatsapp-main {
+            margin: 0 16px 25px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #00a2ff, #0055ff);
+            padding: 18px 22px;
+            border-radius: 18px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 800;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: pulse-blue 2s infinite;
+            transition: transform 0.3s;
+        }
+
+        .btn-whatsapp-main:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #1ab0ff, #0066ff);
+        }
+
+        .btn-whatsapp-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .btn-whatsapp-left i {
+            font-size: 24px;
+        }
+
+        .btn-whatsapp-left span {
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Cards de Serviços */
+        .services-container {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 25px;
+            padding: 0 16px;
+        }
+
+        .service-card {
+            position: relative;
+            height: 85px;
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            border: 1px solid rgba(0, 162, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.28) contrast(1.2);
+            transition: transform 0.5s, filter 0.5s;
+            z-index: 1;
+        }
+
+        .card-biosite::before { background-image: url('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=500&q=80'); }
+        .card-nfc::before { background-image: url('https://images.unsplash.com/photo-1556742049-0a670f4a4591?w=500&q=80'); }
+        .card-cardapio::before { background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&q=80'); }
+        .card-solucoes::before { background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80'); }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px var(--blue-glow);
+        }
+
+        .service-card:hover::before {
+            transform: scale(1.08);
+            filter: brightness(0.38) contrast(1.3);
+        }
+
+        .service-info {
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-info h3 {
+            font-size: 15px;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .service-info p {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .service-arrow {
+            position: relative;
+            z-index: 2;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-arrow {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            transform: translateX(3px);
+        }
+
+        /* Localização */
+        .location-tag {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .location-tag i {
+            color: var(--accent-blue);
+        }
+
+        /* Rodapé Clicável */
+        .footer {
+            text-align: center;
+            padding: 15px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: opacity 0.3s;
+            display: inline-block;
+        }
+
+        .footer-link:hover {
+            opacity: 0.8;
+        }
+
+        .footer-link strong {
+            color: var(--accent-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Topo com a Logo Completa sem Cortes -->
+        <div class="hero-banner">
+            <img src="logo.JPG" alt="ConectaJá Logo" class="hero-banner-img" onerror="this.onerror=null; this.src='logo.png';">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <!-- Barra de Redes Sociais -->
+        <div class="social-bar">
+            <a href="https://www.instagram.com/conectaja.digital?stkn=eWl6cW01bnFqcHQx&utm_source=qr" class="social-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=5519994604562&text=Ol%C3%A1!%20Vim%20pelo%20Bio%20Site%20e%20gostaria%20de%20falar%20com%20a%20equipe." class="social-link" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+
+        <!-- Botão Principal do WhatsApp (Topo) -->
+        <a href="https://api.whatsapp.com/send?phone=5519994604562&text=Ol%C3%A1!%20Vim%20pelo%20Bio%20Site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento." class="btn-whatsapp-main" target="_blank">
+            <div class="btn-whatsapp-left">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>Chamar no WhatsApp</span>
+            </div>
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <!-- Cards dos Serviços -->
+        <div class="services-container">
+            <!-- 1. Bio Site -->
+            <a href="https://api.whatsapp.com/send?phone=5519994604562&text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20Cart%C3%A3o%20Virtual%20%26%20Bio%20Site%20para%20o%20meu%20neg%C3%B3cio." class="service-card card-biosite" target="_blank">
+                <div class="service-info">
+                    <h3>Cartão Virtual & Bio Site</h3>
+                    <p>Conecte sua marca direto ao WhatsApp dos clientes</p>
+                </div>
+                <div class="service-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- 2. Placas NFC & QR Code -->
+            <a href="https://api.whatsapp.com/send?phone=5519994604562&text=Ol%C3%A1!%20Quero%20saber%20mais%20detalhes%20sobre%20as%20Placas%20NFC%20%26%20QR%20Code%20para%20avalia%C3%A7%C3%B5es." class="service-card card-nfc" target="_blank">
+                <div class="service-info">
+                    <h3>Placas NFC & QR Code</h3>
+                    <p>Mais avaliações positivas no Google para seu comércio</p>
+                </div>
+                <div class="service-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- 3. Cardápio Digital -->
+            <a href="https://api.whatsapp.com/send?phone=5519994604562&text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20criar%20um%20Card%C3%A1pio%20Digital." class="service-card card-cardapio" target="_blank">
+                <div class="service-info">
+                    <h3>Cardápio Digital</h3>
+                    <p>Praticidade e modernidade para o atendimento</p>
+                </div>
+                <div class="service-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+
+            <!-- 4. Soluções Digitais -->
+            <a href="https://api.whatsapp.com/send?phone=5519994604562&text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20as%20Solu%C3%A7%C3%B5es%20Digitais%20personalizadas%20para%20o%20meu%20com%C3%A9rcio." class="service-card card-solucoes" target="_blank">
+                <div class="service-info">
+                    <h3>Soluções Digitais</h3>
+                    <p>Estratégias sob medida para impulsionar suas vendas</p>
+                </div>
+                <div class="service-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+        </div>
+
+        <!-- Localização -->
+        <div class="location-tag">
+            <i class="fa-solid fa-location-dot"></i>
+            Santa Bárbara d'Oeste & Região
+        </div>
+
+        <!-- Rodapé Clicável para o Instagram -->
+        <div class="footer">
+            <a href="https://www.instagram.com/conectaja.digital?stkn=eWl6cW01bnFqcHQx&utm_source=qr" target="_blank" class="footer-link">
+                <p><strong>ConectaJá</strong> — Tecnologia que aproxima</p>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
